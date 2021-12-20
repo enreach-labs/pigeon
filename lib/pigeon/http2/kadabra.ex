@@ -3,14 +3,19 @@ if Code.ensure_loaded?(Kadabra) do
     @moduledoc false
 
     @behaviour Pigeon.Http2.Client
+    @kadabra_name :pigeon_kadabra
 
     def start do
       Application.ensure_all_started(:kadabra)
     end
 
+    def child_spec() do
+      Supervisor.child_spec({Kadabra.Supervisor, name: @kadabra_name}, [])
+    end
+
     def connect(uri, scheme, opts) do
       host = "#{scheme}://#{uri}"
-      Kadabra.open(host, ssl: opts)
+      Kadabra.open(@kadabra_name, host, ssl: opts)
     end
 
     def send_request(pid, headers, data) do

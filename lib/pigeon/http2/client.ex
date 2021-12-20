@@ -94,6 +94,7 @@ defmodule Pigeon.Http2.Client do
   end
 
   @callback start() :: no_return
+  @callback child_spec() :: term()
 
   @callback connect(uri :: uri, scheme :: :https, options :: Keyword.t()) ::
               {:ok, pid} | {:error, any}
