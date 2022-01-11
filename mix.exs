@@ -44,7 +44,7 @@ defmodule Pigeon.Mixfile do
   defp elixirc_paths(_), do: ["lib"]
 
   def application do
-    [extra_applications: [:logger], mod: {Pigeon, []}]
+    [extra_applications: [:logger]]
   end
 
   defp deps do
@@ -55,8 +55,7 @@ defmodule Pigeon.Mixfile do
       {:joken, "~> 2.1"},
       {:kadabra,
        git: "https://github.com/BrendanBall/kadabra.git",
-       branch: "configurable_supervision_tree",
-       app: false, optional: true},
+       branch: "configurable_supervision_tree"},
       {:earmark, "~> 1.0", only: :dev},
       {:ex_doc, "~> 0.18", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
