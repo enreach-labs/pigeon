@@ -58,11 +58,11 @@ defmodule Pigeon.Supervisor do
   end
 
   defp worker(%ADM.Config{} = config) do
-    Supervisor.child_spec({ADM.Worker, [config]}, id: config.name, restart: :temporary)
+    Supervisor.child_spec({ADM.Worker, config}, id: config.name, restart: :temporary)
   end
 
   defp worker(config) do
-    Supervisor.child_spec({Pigeon.Worker, [config]}, id: config.name, restart: :temporary)
+    Supervisor.child_spec({Pigeon.Worker, config}, id: config.name, restart: :temporary)
   end
 
   defp adm_workers do
@@ -85,7 +85,7 @@ defmodule Pigeon.Supervisor do
       workers ->
         Enum.map(workers, fn {worker_name, _config} ->
           config = config_fn.(worker_name)
-          Supervisor.child_spec({mod, [config]}, id: config.name, restart: :temporary)
+          Supervisor.child_spec({mod, config}, id: config.name, restart: :temporary)
         end)
     end
   end
