@@ -6,7 +6,7 @@ defmodule Pigeon do
   @doc false
   def start_connection(state) do
     opts = [restart: :temporary, id: :erlang.make_ref()]
-    spec = Supervisor.child_spec({Pigeon.Connection, [state]}, opts)
+    spec = Supervisor.child_spec({Pigeon.Connection, state}, opts)
     Supervisor.start_child(:pigeon, spec)
   end
 
