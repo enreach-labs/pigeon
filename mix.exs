@@ -54,7 +54,7 @@ defmodule Pigeon.Mixfile do
       {:gen_stage, "~> 0.12 or ~> 1.0"},
       {:joken, "~> 2.1"},
       {:kadabra,
-       git: "https://github.com/BrendanBall/kadabra.git",
+       git: "https://github.com/enreach-labs/kadabra.git",
        branch: "configurable_supervision_tree"},
       {:earmark, "~> 1.0", only: :dev},
       {:ex_doc, "~> 0.18", only: :dev},
