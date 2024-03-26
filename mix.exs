@@ -52,7 +52,10 @@ defmodule Pigeon.Mixfile do
       {:httpoison, "~> 0.7 or ~> 1.0"},
       {:jason, "~> 1.0", optional: true},
       {:joken, "~> 2.1"},
-      {:kadabra, "~> 0.6.0"}
+      {:kadabra,
+       git: "https://github.com/enreach-labs/kadabra.git",
+       branch: "configurable_supervision_tree"
+      }
     ]
   end
 
